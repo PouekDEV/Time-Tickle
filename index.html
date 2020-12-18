@@ -12,7 +12,7 @@
           text-align: center;
           text-decoration: none;
           display: inline-block;
-          font-size: 20px;
+          font-size: 15px;
           margin: 4px 2px;
           border: 10px solid #ffffff;
         }
@@ -23,7 +23,7 @@
           text-align: center;
           text-decoration: none;
           display: inline-block;
-          font-size: 20px;
+          font-size: 15px;
           margin: 4px 2px;
           border: 10px solid #ff0000;
           cursor: pointer;
@@ -35,7 +35,7 @@
           text-align: center;
           text-decoration: none;
           display: inline-block;
-          font-size: 20px;
+          font-size: 15px;
           margin: 4px 2px;
           border: 10px solid #ff0000;
         }
@@ -46,7 +46,7 @@
           text-align: center;
           text-decoration: none;
           display: inline-block;
-          font-size: 20px;
+          font-size: 15px;
           margin: 4px 2px;
           border: 10px solid #ff000000;
           cursor: pointer;
@@ -58,7 +58,7 @@
           text-align: center;
           text-decoration: none;
           display: inline-block;
-          font-size: 20px;
+          font-size: 15px;
           margin: 4px 2px;
           border: 10px solid #003cff;
         }
@@ -69,7 +69,7 @@
           text-align: center;
           text-decoration: none;
           display: inline-block;
-          font-size: 20px;
+          font-size: 15px;
           margin: 4px 2px;
           border: 10px solid #00ff00;
         }
@@ -80,9 +80,20 @@
           text-align: center;
           text-decoration: none;
           display: inline-block;
-          font-size: 20px;
+          font-size: 15px;
           margin: 4px 2px;
           border: 10px solid #eeff00;
+        }
+        .QoL {
+          border: none;
+          color: white;
+          padding: 15px 45px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 15px;
+          margin: 4px 2px;
+          border: 10px solid #ff0062;
         }
         .button1:hover {
   background-color: #696969;
@@ -145,6 +156,21 @@
           <p style="text-align:center;" id="hg"><big><big><big>Hours Generators: 0</big></big></big></p>
             <button class="buttons button1" onclick="buyhg()"><big>Buy</big></button><p id="hc">Cost: 1000</p>
         </div>
+        <div class="l">
+          <p style="text-align:center;"><big><big><big><big><big><big>QoL</big></big></big></big></big></big></p>
+        </div>
+        <div class="AutoBuy QoL">
+            <p style="text-align:center;"><big><big><big>AutoBuy Seconds</big></big></big></p>
+            <button class="buttons button1" onclick="autobys()"><big><p id="as">Buy</p></big></button><p id="sa">Cost: 60Min</p>
+        </div>
+        <div class="AutoBuy QoL">
+          <p style="text-align:center;"><big><big><big>AutoBuy Minutes</big></big></big></p>
+          <button class="buttons button1" onclick="autobym()"><big><p id="am">Buy</p></big></button><p id="ma">Cost: 24H</p>
+      </div>
+      <div class="AutoBuy QoL">
+        <p style="text-align:center;"><big><big><big>AutoBuy Hours</big></big></big></p>
+        <button class="buttons button1" onclick="autobuyh()"><big><p id="ah">Buy</p></big></button><p id="ha">Cost: 365D or 1TP</p>
+    </div>
         <div class="us">
           <p style="text-align:center;"><big><big><big><big><big><big>Settings</big></big></big></big></big></big></p>
         </div>

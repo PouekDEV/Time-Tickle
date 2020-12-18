@@ -7,6 +7,7 @@ var tp = 0;
 var ts = 100;
 //ustawienia
 var update_rate = 50;
+var autobuy_rate = 50;
 //generatory
 var seconds_generator = 0;
 var minutes_generator = 0;
@@ -15,6 +16,21 @@ var hours_generator = 0;
 var sg_cost = 0;
 var mg_cost = 10;
 var hg_cost = 10;
+//koszty ale do pokazania
+var sgs_cost;
+var mgs_cost;
+var hgh_cost;
+//Autobuy
+var seconds_autobyers = false;
+var minutes_autobyers = false;
+var hours_autobyers = false;
+//save autobuy
+var sa_on = true;
+var ma_on = true;
+var ha_on = true;
+//checkers
+var prestige = false;
+document.getElementById("bdd").style.display = "none";
 document.getElementById("tp").innerHTML = "Time Points: " + tp;
 document.getElementById("ts").innerHTML = "Time Stability: " + ts +"%";
 document.getElementById("ms").innerHTML = update_rate +"ms"
@@ -36,6 +52,9 @@ setInterval(() =>{
     minutes = Math.round(minutes);
     hours = Math.round(hours);
     days = Math.round(days);
+    sgs_cost = sg_cost;
+    mgs_cost = mg_cost;
+    hgs_cost = hg_cost;
     if(seconds >= 1000000 && minutes >= 100000 && hours >= 100000){
         document.getElementById("finb").style.display = "block";
     }
@@ -49,6 +68,10 @@ setInterval(() =>{
         document.getElementById("finb").style.display = "none";
         document.getElementById("klep").style.display = "none";
         document.getElementById("ts").innerHTML = "Time Stability: " + ts +"%";
+        if(tp == 1 && !prestige){
+            document.getElementById("bdd").style.display = "block";
+            prestige = true;
+        }
         if(seconds >= 60){
             seconds = 0;
             minutes +=1;
@@ -78,6 +101,59 @@ setInterval(() =>{
     document.getElementById("mc").innerHTML = "Cost: " + mg_cost + "Min";
     document.getElementById("hc").innerHTML = "Cost: " + hg_cost + "H";
 },update_rate)
+setInterval(()=> {
+    if(seconds_autobyers && sa_on){
+        if(seconds >= sg_cost){
+            seconds -= sg_cost;
+            seconds_generator += 1;
+            sg_cost += 10;
+        }
+        else if(minutes * 60 >= sg_cost){
+            seconds_generator += 1;
+            minutes -= sg_cost / 60;
+            sg_cost += 10;
+        }
+        else if(hours * 3600 >= sg_cost){
+            seconds_generator += 1;
+            hours -= sg_cost / 3600;
+            sg_cost += 10;
+        }
+        else if(days * 86400 >= sg_cost){
+            seconds_generator += 1;
+            days -= sg_cost / 86400;
+            sg_cost += 10;
+        }
+    }
+    if(minutes_autobyers && ma_on){
+        if(minutes >= mg_cost){
+            minutes -= mg_cost;
+            minutes_generator += 1;
+            mg_cost += 100;
+        }
+        else if(hours * 60 >= mg_cost){
+            minutes_generator += 1;
+            hours -= mg_cost / 60;
+            mg_cost += 100;
+        }
+        else if(days * 1440 >= mg_cost){
+            minutes_generator += 1;
+            days -= mg_cost / 1440;
+            mg_cost += 100;
+        }
+    }
+    if(hours_autobyers && ha_on){
+        if(hours >= hg_cost){
+            hours -= hg_cost;
+            hours_generator += 1;
+            hg_cost += 500;
+        }
+        else if(days * 24 >= hg_cost){
+            hours_generator += 1;
+            days -= hg_cost / 24;
+            hg_cost += 500;
+        }
+    }
+},autobuy_rate)
 function buysg(){
     if(seconds >= sg_cost){
         seconds -= sg_cost;
@@ -87,6 +163,16 @@ function buysg(){
     else if(minutes * 60 >= sg_cost){
         seconds_generator += 1;
         minutes -= sg_cost / 60;
+        sg_cost += 10;
+    }
+    else if(hours * 3600 >= sg_cost){
+        seconds_generator += 1;
+        hours -= sg_cost / 3600;
+        sg_cost += 10;
+    }
+    else if(days * 86400 >= sg_cost){
+        seconds_generator += 1;
+        days -= sg_cost / 86400;
         sg_cost += 10;
     }
 }
@@ -99,6 +185,11 @@ function buymg(){
     else if(hours * 60 >= mg_cost){
         minutes_generator += 1;
         hours -= mg_cost / 60;
+        mg_cost += 100;
+    }
+    else if(days * 1440 >= mg_cost){
+        minutes_generator += 1;
+        days -= mg_cost / 1440;
         mg_cost += 100;
     }
 }
@@ -147,4 +238,76 @@ function updaterate(){
         update_rate = 50;
     }
     document.getElementById("ms").innerHTML = update_rate +"ms"
+}
+function autobys(){
+    if(!seconds_autobyers){
+        if(minutes >= 60){
+            minutes -= 60;
+            seconds_autobyers = true;
+            document.getElementById("sa").innerHTML = "Arleady Buyed!"
+            document.getElementById("as").innerHTML = "On"
+        }
+        else if(hours >= 1){
+            hours -= 1;
+            seconds_autobyers = true;
+            document.getElementById("sa").innerHTML = "Arleady Buyed!"
+            document.getElementById("as").innerHTML = "On"
+        }
+    }
+    if(seconds_autobyers && sa_on){
+        sa_on = false;
+        document.getElementById("as").innerHTML = "Off"
+    }
+    else{
+        sa_on = true;
+        document.getElementById("as").innerHTML = "On"
+    }
+}
+function autobym(){
+    if(!minutes_autobyers){
+        if(hours >= 24){
+            hours -= 24;
+            minutes_autobyers = true;
+            document.getElementById("ma").innerHTML = "Arleady Buyed!"
+            document.getElementById("am").innerHTML = "On"
+        }
+        else if(days >= 1){
+            days -= 1;
+            minutes_autobyers = true;
+            document.getElementById("ma").innerHTML = "Arleady Buyed!"
+            document.getElementById("am").innerHTML = "On"
+        }
+    }
+    if(minutes_autobyers && ma_on){
+        ma_on = false;
+        document.getElementById("am").innerHTML = "Off"
+    }
+    else{
+        ma_on = true;
+        document.getElementById("am").innerHTML = "On"
+    }
+}
+function autobuyh(){
+    if(!hours_autobyers){
+        if(days >= 365){
+            days -= 365;
+            hours_autobyers = true;
+            document.getElementById("ha").innerHTML = "Arleady Buyed!"
+            document.getElementById("ah").innerHTML = "On"
+        }
+        else if(tp >= 1){
+            tp -= 1;
+            hours_autobyers = true;
+            document.getElementById("ha").innerHTML = "Arleady Buyed!"
+            document.getElementById("ah").innerHTML = "On"
+        }
+    }
+    if(hours_autobyers && ha_on){
+        ha_on = false;
+        document.getElementById("ah").innerHTML = "Off"
+    }
+    else{
+        ha_on = true;
+        document.getElementById("ah").innerHTML = "On"
+    }
 }
