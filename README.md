@@ -1,3 +1,3 @@
 # Time-Tickle
 My first little incremental game
-# Play here - 
+# Play here - https://pouekdev.github.io/Time-Tickle
