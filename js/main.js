@@ -209,19 +209,31 @@ function damaget(){
     if(tp >= 1){
     ts -= tp * 1.5
     //ilości
-    seconds = 0;
-    minutes = 10;
-    hours = 10;
-    days = 0;
-    tp = 0;
-    //generatory
-    seconds_generator = 0;
-    minutes_generator = 0;
-    hours_generator = 0;
-    //koszty
-    sg_cost = 0;
-    mg_cost = 10;
-    hg_cost = 10;
+ seconds = 0;
+ minutes = 0;
+ hours = 0;
+ days = 0;
+ tp = 0;
+//generatory
+ seconds_generator = 0;
+ minutes_generator = 0;
+ hours_generator = 0;
+//koszty
+ sg_cost = 0;
+ mg_cost = 10;
+ hg_cost = 10;
+//koszty ale do pokazania
+ sgs_cost;
+ mgs_cost;
+ hgh_cost;
+//autobuy
+ seconds_autobyers = false;
+ minutes_autobyers = false;
+ hours_autobyers = false;
+//save autobuy
+ sa_on = true;
+ ma_on = true;
+ ha_on = true;
     }
 }
 function sike(){
