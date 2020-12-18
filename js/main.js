@@ -82,36 +82,36 @@ function buysg(){
     if(seconds >= sg_cost){
         seconds -= sg_cost;
         seconds_generator += 1;
-        sg_cost += 1;
+        sg_cost += 10;
     }
     else if(minutes * 60 >= sg_cost){
         seconds_generator += 1;
         minutes -= sg_cost / 60;
-        sg_cost += 1;
+        sg_cost += 10;
     }
 }
 function buymg(){
     if(minutes >= mg_cost){
         minutes -= mg_cost;
         minutes_generator += 1;
-        mg_cost += 1;
+        mg_cost += 100;
     }
     else if(hours * 60 >= mg_cost){
         minutes_generator += 1;
         hours -= mg_cost / 60;
-        mg_cost += 1;
+        mg_cost += 100;
     }
 }
 function buyhg(){
     if(hours >= hg_cost){
         hours -= hg_cost;
         hours_generator += 1;
-        hg_cost += 1 
+        hg_cost += 500;
     }
     else if(days * 24 >= hg_cost){
         hours_generator += 1;
         days -= hg_cost / 24;
-        hg_cost += 1;
+        hg_cost += 500;
     }
 }
 function damaget(){
