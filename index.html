@@ -1,0 +1,152 @@
+<html lang="en">
+    <style>
+         .generator {
+          border: none;
+          color: white;
+          padding: 15px 45px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 40px;
+          margin: 4px 2px;
+          border: 10px solid #ffffff;
+        }
+        .buttons {
+          border: none;
+          color: white;
+          padding: 15px 45px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 40px;
+          margin: 4px 2px;
+          border: 10px solid #ff0000;
+          cursor: pointer;
+        }
+        .buttonss {
+          border: none;
+          color: white;
+          padding: 15px 45px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 40px;
+          margin: 4px 2px;
+          border: 10px solid #ff0000;
+        }
+        .damage {
+          border: none;
+          color: white;
+          padding: 15px 45px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 40px;
+          margin: 4px 2px;
+          border: 10px solid #ff000000;
+          cursor: pointer;
+        }
+        .items {
+          border: none;
+          color: white;
+          padding: 15px 45px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 40px;
+          margin: 4px 2px;
+          border: 10px solid #003cff;
+        }
+        .times {
+          border: none;
+          color: white;
+          padding: 15px 45px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 40px;
+          margin: 4px 2px;
+          border: 10px solid #00ff00;
+        }
+        .kle {
+          border: none;
+          color: white;
+          padding: 15px 45px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 40px;
+          margin: 4px 2px;
+          border: 10px solid #eeff00;
+        }
+        .button1:hover {
+  background-color: #696969;
+  color: rgb(255, 255, 255);
+}
+.button1 {background-color: #000000;} /* Black */
+    </style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Tickle</title>
+    <link rel="icon" href="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/271/hourglass-done_231b.png">
+</head>
+<body style="background-color:black;" text="#ffffff">
+    <div class="klepsydra kle" id="klep">
+        This is end<p style="text-align:center;"><img src="images/hourglass.png"></p>Not really 
+        <p style="text-align:center;">Collect 100000H 100000Min 1000000s</p>
+        <p style="text-align:center;" id="finb"><button class="buttons button1" onclick="sike()"><big>Tickle ¯\_(ツ)_/¯ Tickle</big></button></p>
+    </div>
+    <div class="information generator">
+        <p style="text-align:center;" id="tp"><big><big><big><big><big><big><big><big>Time Points: 0</big></big></big></big></big></big></big></big></p>
+    </div>
+    <div class="stability times">
+        <p style="text-align:center;" id="ts"><big><big><big><big><big><big><big><big>Time stability</big></big></big></big></big></big></big></big></p>
+    </div>
+    <div class="damageing buttonss" id="bdd">
+        <button class="damage button1" id="bd" onclick="damaget()"><big>Damage</big></button>
+    </div>
+    <div class="generatory">
+        <div class="dni generator">
+            <p style="text-align:center;"><big><big><big>Days</big></big></big></p>
+            <p style="text-align:center;" id="days"><big><big><big>0</big></big></big></p>
+        </div>
+        <div class="godziny generator">
+            <p style="text-align:center;"><big><big><big>Hours</big></big></big></p>
+            <p style="text-align:center;" id="hours"><big><big><big>0</big></big></big></p>
+        </div>
+        <div class="minuty generator">
+            <p style="text-align:center;"><big><big><big>Minutes</big></big></big></p>
+            <p style="text-align:center;" id="minutes"><big><big><big>0</big></big></big></p>
+        </div>
+        <div class="sekundy generator">
+            <p style="text-align:center;"><big><big><big>Seconds</big></big></big></p>
+            <p style="text-align:center;" id="seconds"><big><big><big>0</big></big></big></p>
+        </div>
+        <div class="gn">
+          <p style="text-align:center;"><big><big><big><big><big><big>Generators</big></big></big></big></big></big></p>
+        </div>
+        <div class="itemy items">
+            <p style="text-align:center;" id="sg"><big><big><big>Seconds Generators: 0</big></big></big></p>
+            <button class="buttons button1" onclick="buysg()"><big>Buy</big></button><p id="sc">Cost: 0</p>
+        </div>
+        <div class="itemy items">
+          <p style="text-align:center;" id="mg"><big><big><big>Minutes Generators: 0</big></big></big></p>
+            <button class="buttons button1" onclick="buymg()"><big>Buy</big></button><p id="mc">Cost: 100</p>
+        </div>
+        <div class="itemy items">
+          <p style="text-align:center;" id="hg"><big><big><big>Hours Generators: 0</big></big></big></p>
+            <button class="buttons button1" onclick="buyhg()"><big>Buy</big></button><p id="hc">Cost: 1000</p>
+        </div>
+        <div class="us">
+          <p style="text-align:center;"><big><big><big><big><big><big>Settings</big></big></big></big></big></big></p>
+        </div>
+        <div class="settings times">
+          <p style="text-align:center;"><big><big><big><big>Change Update Rate</big></big></big></big></p>
+          <button class="buttons button1" onclick="updaterate()"><big><p id="ms">Cost: 1000</p></big></button>
+        </div>
+    </div>
+</body>
+<!--Import-->
+<script src="js/main.js"></script>
+</html>
