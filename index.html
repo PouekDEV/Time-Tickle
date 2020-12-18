@@ -1,5 +1,10 @@
 <html lang="en">
     <style>
+      .container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
          .generator {
           border: none;
           color: white;
@@ -7,7 +12,7 @@
           text-align: center;
           text-decoration: none;
           display: inline-block;
-          font-size: 40px;
+          font-size: 20px;
           margin: 4px 2px;
           border: 10px solid #ffffff;
         }
@@ -18,7 +23,7 @@
           text-align: center;
           text-decoration: none;
           display: inline-block;
-          font-size: 40px;
+          font-size: 20px;
           margin: 4px 2px;
           border: 10px solid #ff0000;
           cursor: pointer;
@@ -30,7 +35,7 @@
           text-align: center;
           text-decoration: none;
           display: inline-block;
-          font-size: 40px;
+          font-size: 20px;
           margin: 4px 2px;
           border: 10px solid #ff0000;
         }
@@ -41,7 +46,7 @@
           text-align: center;
           text-decoration: none;
           display: inline-block;
-          font-size: 40px;
+          font-size: 20px;
           margin: 4px 2px;
           border: 10px solid #ff000000;
           cursor: pointer;
@@ -53,7 +58,7 @@
           text-align: center;
           text-decoration: none;
           display: inline-block;
-          font-size: 40px;
+          font-size: 20px;
           margin: 4px 2px;
           border: 10px solid #003cff;
         }
@@ -64,7 +69,7 @@
           text-align: center;
           text-decoration: none;
           display: inline-block;
-          font-size: 40px;
+          font-size: 20px;
           margin: 4px 2px;
           border: 10px solid #00ff00;
         }
@@ -75,7 +80,7 @@
           text-align: center;
           text-decoration: none;
           display: inline-block;
-          font-size: 40px;
+          font-size: 20px;
           margin: 4px 2px;
           border: 10px solid #eeff00;
         }
@@ -92,21 +97,23 @@
     <link rel="icon" href="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/271/hourglass-done_231b.png">
 </head>
 <body style="background-color:black;" text="#ffffff">
-    <div class="klepsydra kle" id="klep">
-        This is end<p style="text-align:center;"><img src="images/hourglass.png"></p>Not really 
-        <p style="text-align:center;">Collect 100000H 100000Min 1000000s</p>
-        <p style="text-align:center;" id="finb"><button class="buttons button1" onclick="sike()"><big>Tickle ¯\_(ツ)_/¯ Tickle</big></button></p>
-    </div>
-    <div class="information generator">
-        <p style="text-align:center;" id="tp"><big><big><big><big><big><big><big><big>Time Points: 0</big></big></big></big></big></big></big></big></p>
-    </div>
-    <div class="stability times">
-        <p style="text-align:center;" id="ts"><big><big><big><big><big><big><big><big>Time stability</big></big></big></big></big></big></big></big></p>
-    </div>
-    <div class="damageing buttonss" id="bdd">
-        <button class="damage button1" id="bd" onclick="damaget()"><big>Damage</big></button>
-    </div>
-    <div class="generatory">
+  <div class="rest container">
+    <div class="klepsydra container kle" id="klep">
+      This is end<p style="text-align:center;"><img src="images/hourglass.png"></p>Not really 
+      <p style="text-align:center;">Collect 100000H 100000Min 1000000s</p>
+      <p style="text-align:center;" id="finb"><button class="buttons button1" onclick="sike()"><big>Tickle ¯\_(ツ)_/¯ Tickle</big></button></p>
+  </div>
+  <div class="information container generator">
+      <p style="text-align:center;" id="tp"><big><big><big><big><big><big><big><big>Time Points: 0</big></big></big></big></big></big></big></big></p>
+  </div>
+  <div class="stability container times">
+      <p style="text-align:center;" id="ts"><big><big><big><big><big><big><big><big>Time stability</big></big></big></big></big></big></big></big></p>
+  </div>
+  <div class="damageing container buttonss" id="bdd">
+      <button class="damage button1" id="bd" onclick="damaget()"><big>Damage</big></button>
+  </div>
+  </div>
+    <div class="generatory container">
         <div class="dni generator">
             <p style="text-align:center;"><big><big><big>Days</big></big></big></p>
             <p style="text-align:center;" id="days"><big><big><big>0</big></big></big></p>
@@ -146,6 +153,7 @@
           <button class="buttons button1" onclick="updaterate()"><big><p id="ms">Cost: 1000</p></big></button>
         </div>
     </div>
+  </div>
 </body>
 <!--Import-->
 <script src="js/main.js"></script>

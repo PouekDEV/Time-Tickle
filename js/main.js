@@ -32,6 +32,10 @@ setInterval(() =>{
     seconds += seconds_generator * 0.5;
     minutes += minutes_generator * 0.5;
     hours += hours_generator * 0.5;
+    seconds = Math.round(seconds);
+    minutes = Math.round(minutes);
+    hours = Math.round(hours);
+    days = Math.round(days);
     if(seconds >= 1000000 && minutes >= 100000 && hours >= 100000){
         document.getElementById("finb").style.display = "block";
     }
@@ -76,20 +80,38 @@ setInterval(() =>{
 },update_rate)
 function buysg(){
     if(seconds >= sg_cost){
+        seconds -= sg_cost;
         seconds_generator += 1;
+        sg_cost += 1;
+    }
+    else if(minutes * 60 >= sg_cost){
+        seconds_generator += 1;
+        minutes -= sg_cost / 60;
         sg_cost += 1;
     }
 }
 function buymg(){
     if(minutes >= mg_cost){
+        minutes -= mg_cost;
         minutes_generator += 1;
+        mg_cost += 1;
+    }
+    else if(hours * 60 >= mg_cost){
+        minutes_generator += 1;
+        hours -= mg_cost / 60;
         mg_cost += 1;
     }
 }
 function buyhg(){
     if(hours >= hg_cost){
+        hours -= hg_cost;
         hours_generator += 1;
         hg_cost += 1 
+    }
+    else if(days * 24 >= hg_cost){
+        hours_generator += 1;
+        days -= hg_cost / 24;
+        hg_cost += 1;
     }
 }
 function damaget(){
@@ -101,8 +123,6 @@ function damaget(){
     hours = 10;
     days = 0;
     tp = 0;
-    //ustawienia
-    update_rate = 50;
     //generatory
     seconds_generator = 0;
     minutes_generator = 0;
