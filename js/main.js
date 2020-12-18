@@ -256,13 +256,13 @@ function autobys(){
         if(minutes >= 60){
             minutes -= 60;
             seconds_autobyers = true;
-            document.getElementById("sa").innerHTML = "Arleady Buyed!"
+            document.getElementById("sa").innerHTML = "Arleady Purchased!"
             document.getElementById("as").innerHTML = "On"
         }
         else if(hours >= 1){
             hours -= 1;
             seconds_autobyers = true;
-            document.getElementById("sa").innerHTML = "Arleady Buyed!"
+            document.getElementById("sa").innerHTML = "Arleady Purchased!"
             document.getElementById("as").innerHTML = "On"
         }
     }
@@ -280,13 +280,13 @@ function autobym(){
         if(hours >= 24){
             hours -= 24;
             minutes_autobyers = true;
-            document.getElementById("ma").innerHTML = "Arleady Buyed!"
+            document.getElementById("ma").innerHTML = "Arleady Purchased!"
             document.getElementById("am").innerHTML = "On"
         }
         else if(days >= 1){
             days -= 1;
             minutes_autobyers = true;
-            document.getElementById("ma").innerHTML = "Arleady Buyed!"
+            document.getElementById("ma").innerHTML = "Arleady Purchased!"
             document.getElementById("am").innerHTML = "On"
         }
     }
@@ -304,13 +304,13 @@ function autobuyh(){
         if(days >= 365){
             days -= 365;
             hours_autobyers = true;
-            document.getElementById("ha").innerHTML = "Arleady Buyed!"
+            document.getElementById("ha").innerHTML = "Arleady Purchased!"
             document.getElementById("ah").innerHTML = "On"
         }
         else if(tp >= 1){
             tp -= 1;
             hours_autobyers = true;
-            document.getElementById("ha").innerHTML = "Arleady Buyed!"
+            document.getElementById("ha").innerHTML = "Arleady Purchased!"
             document.getElementById("ah").innerHTML = "On"
         }
     }
