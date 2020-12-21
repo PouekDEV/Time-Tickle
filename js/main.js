@@ -226,14 +226,6 @@ function damaget(){
  sgs_cost;
  mgs_cost;
  hgh_cost;
-//autobuy
- seconds_autobyers = false;
- minutes_autobyers = false;
- hours_autobyers = false;
-//save autobuy
- sa_on = true;
- ma_on = true;
- ha_on = true;
     }
 }
 function sike(){
