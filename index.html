@@ -5,6 +5,13 @@
   text-align: center;
   color: white;
 }
+.justidy {
+  position: relative;
+  overflow-x: hidden;
+  width: 101%;
+  color: white;
+  overflow: hidden;
+}
          .generator {
           border: none;
           color: white;
@@ -25,7 +32,7 @@
           display: inline-block;
           font-size: 15px;
           margin: 4px 2px;
-          border: 10px solid #ff0000;
+          border: 10px solid #93A3B1;
           cursor: pointer;
         }
         .buttonss {
@@ -37,7 +44,7 @@
           display: inline-block;
           font-size: 15px;
           margin: 4px 2px;
-          border: 10px solid #ff0000;
+          border: 10px solid #93A3B1;
         }
         .damage {
           border: none;
@@ -60,7 +67,7 @@
           display: inline-block;
           font-size: 15px;
           margin: 4px 2px;
-          border: 10px solid #003cff;
+          border: 10px solid #322214;
         }
         .times {
           border: none;
@@ -71,7 +78,7 @@
           display: inline-block;
           font-size: 15px;
           margin: 4px 2px;
-          border: 10px solid #00ff00;
+          border: 10px solid #4C443C;
         }
         .kle {
           border: none;
@@ -82,7 +89,7 @@
           display: inline-block;
           font-size: 15px;
           margin: 4px 2px;
-          border: 10px solid #eeff00;
+          border: 10px solid #636564;
         }
         .QoL {
           border: none;
@@ -93,7 +100,7 @@
           display: inline-block;
           font-size: 15px;
           margin: 4px 2px;
-          border: 10px solid #ff0062;
+          border: 10px solid #4C443C;
         }
         .button1:hover {
   background-color: #696969;
@@ -107,25 +114,30 @@
     <title>Time Tickle</title>
     <link rel="icon" href="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/271/hourglass-done_231b.png">
 </head>
-<body style="background-color:black;" text="#ffffff">
+<body style="background-color:rgb(53, 53, 53);" text="#ffffff">
   <p style="text-align:left;"><input type="image" src="images/discord.png" onclick="window.location.href='https://discord.gg/PzWkdG9SFA'"></p>
+  <!--<div class="container QoL generator">
+    <p style="text-align:center;"><button class="damage button1" onclick=""><big></big></button></p>
+  </div>
+-->
   <div class="rest container">
     <div class="klepsydra container kle" id="klep">
       This is end<p style="text-align:center;"><img src="images/hourglass.png"></p>Not really 
       <p style="text-align:center;">Collect 100000H 100000Min 1000000s</p>
       <p style="text-align:center;" id="finb"><button class="buttons button1" onclick="sike()"><big>Tickle ¯\_(ツ)_/¯ Tickle</big></button></p>
   </div>
-  <div class="information container generator">
-      <p style="text-align:center;" id="tp"><big><big><big><big><big><big><big><big>Time Points: 0</big></big></big></big></big></big></big></big></p>
+  <div class="container generator">
+      <p style="text-align:center;" id="tp"><big><big><big><big>Time Points: 0</big></big></big></big></p>
   </div>
-  <div class="stability container times">
+  <div class="container times">
       <p style="text-align:center;" id="ts"><big><big><big><big><big><big><big><big>Time stability</big></big></big></big></big></big></big></big></p>
   </div>
+</div>
   <div class="damageing container buttonss" id="bdd">
       <button class="damage button1" id="bd" onclick="damaget()"><big>Damage</big></button>
   </div>
-  </div>
     <div class="generatory container">
+      <div class="justidy">
         <div class="dni generator">
             <p style="text-align:center;"><big><big><big>Days</big></big></big></p>
             <p style="text-align:center;" id="days"><big><big><big>0</big></big></big></p>
@@ -142,6 +154,7 @@
             <p style="text-align:center;"><big><big><big>Seconds</big></big></big></p>
             <p style="text-align:center;" id="seconds"><big><big><big>0</big></big></big></p>
         </div>
+      </div>
         <div class="gn">
           <p style="text-align:center;"><big><big><big><big><big><big>Generators</big></big></big></big></big></big></p>
         </div>
