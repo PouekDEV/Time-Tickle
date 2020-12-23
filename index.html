@@ -5,14 +5,31 @@
   text-align: center;
   color: white;
 }
+.chooose{
+  width: 50%;
+}
 .justidy {
   position: relative;
   overflow-x: hidden;
-  width: 101%;
+  width: 100.9%;
   color: white;
   overflow: hidden;
 }
          .generator {
+          border: none;
+          color: white;
+          padding: 15px 45px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 15px;
+          margin: 4px 2px;
+          border: 10px solid #ffffff;
+        }
+        .choose {
+          position: relative;
+          text-align: center;
+          color: white;
           border: none;
           color: white;
           padding: 15px 45px;
@@ -106,7 +123,12 @@
   background-color: #696969;
   color: rgb(255, 255, 255);
 }
+.button2:hover {
+  background-color: #696969;
+  color: rgb(0, 0, 0);
+}
 .button1 {background-color: #000000;} /* Black */
+.button2 {background-color: #857070;} /* ? */
     </style>
 <head>
     <meta charset="UTF-8">
@@ -116,10 +138,17 @@
 </head>
 <body style="background-color:rgb(53, 53, 53);" text="#ffffff">
   <p style="text-align:left;"><input type="image" src="images/discord.png" onclick="window.location.href='https://discord.gg/PzWkdG9SFA'"></p>
-  <!--<div class="container QoL generator">
-    <p style="text-align:center;"><button class="damage button1" onclick=""><big></big></button></p>
+  <div class="container justidy">
+    <div class="buttonsss generator">
+    <p style="text-align:center;"><button class="buttons button2" onclick="selectqol()"><big>AutoBuyers</big></button></p>
   </div>
--->
+  <div class="buttonsss generator">
+    <p style="text-align:center;"><button class="buttons button2" onclick="selectgene()"><big>Generators</big></button></p>
+  </div>
+  <div class="buttonsss generator">
+    <p style="text-align:center;"><button class="buttons button2" onclick="selectsettings()"><big>Settings</big></button></p>
+  </div>
+  </div>
   <div class="rest container">
     <div class="klepsydra container kle" id="klep">
       This is end<p style="text-align:center;"><img src="images/hourglass.png"></p>Not really 
@@ -155,6 +184,7 @@
             <p style="text-align:center;" id="seconds"><big><big><big>0</big></big></big></p>
         </div>
       </div>
+      <div class="selectgene" id="selectgene">
         <div class="gn">
           <p style="text-align:center;"><big><big><big><big><big><big>Generators</big></big></big></big></big></big></p>
         </div>
@@ -170,21 +200,28 @@
           <p style="text-align:center;" id="hg"><big><big><big>Hours Generators: 0</big></big></big></p>
             <button class="buttons button1" onclick="buyhg()"><big>Buy</big></button><p id="hc">Cost: 1000</p>
         </div>
+      </div>
+      <div class="selectqol" id="selectqol">
         <div class="l">
-          <p style="text-align:center;"><big><big><big><big><big><big>QoL</big></big></big></big></big></big></p>
+          <p style="text-align:center;"><big><big><big><big><big><big>AutoBuyers</big></big></big></big></big></big></p>
         </div>
         <div class="AutoBuy QoL">
             <p style="text-align:center;"><big><big><big>AutoBuy Seconds</big></big></big></p>
             <button class="buttons button1" onclick="autobys()"><big><p id="as">Buy</p></big></button><p id="sa">Cost: 60Min</p>
+            <button class="buttons button1" onclick="upgradeis()"><big><p id="is">Upgrade Interval</p></big></button><p id="isc">Cost: 1TP</p>
         </div>
         <div class="AutoBuy QoL">
           <p style="text-align:center;"><big><big><big>AutoBuy Minutes</big></big></big></p>
           <button class="buttons button1" onclick="autobym()"><big><p id="am">Buy</p></big></button><p id="ma">Cost: 24H</p>
+          <button class="buttons button1" onclick="upgradeim()"><big><p id="im">Upgrade Interval</p></big></button><p id="imc">Cost: 1TP</p>
       </div>
       <div class="AutoBuy QoL">
         <p style="text-align:center;"><big><big><big>AutoBuy Hours</big></big></big></p>
         <button class="buttons button1" onclick="autobuyh()"><big><p id="ah">Buy</p></big></button><p id="ha">Cost: 365D or 1TP</p>
+        <button class="buttons button1" onclick="upgradeih()"><big><p id="ih">Upgrade Interval</p></big></button><p id="ihc">Cost: 1TP</p>
     </div>
+  </div>
+  <div class="selectsettings" id="selectsettings">
         <div class="us">
           <p style="text-align:center;"><big><big><big><big><big><big>Settings</big></big></big></big></big></big></p>
         </div>
@@ -192,6 +229,15 @@
           <p style="text-align:center;"><big><big><big><big>Change Update Rate</big></big></big></big></p>
           <button class="buttons button1" onclick="updaterate()"><big><p id="ms">Cost: 1000</p></big></button>
         </div>
+        <div class="settings times">
+          <p style="text-align:center;"><big><big><big><big>Save</big></big></big></big></p>
+          <button class="buttons button1" onclick="save()"><big><p>Save</p></big></button>
+        </div>
+        <div class="settings times">
+          <p style="text-align:center;"><big><big><big><big>Load</big></big></big></big></p>
+          <button class="buttons button1" onclick="load()"><big><p>Load</p></big></button>
+        </div>
+      </div>
     </div>
   </div>
 </body>
