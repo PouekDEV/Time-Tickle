@@ -9,6 +9,7 @@ var ttp = 0;
 //ustawienia
 var update_rate = 50;
 var autobuy_rate = 50;
+var save_pop_up = false;
 //generatory
 var seconds_generator = 0;
 var minutes_generator = 0;
@@ -130,6 +131,7 @@ setInterval(() =>{
     document.getElementById("sc").innerHTML = "Cost: " + sg_cost + "s";
     document.getElementById("mc").innerHTML = "Cost: " + mg_cost + "Min";
     document.getElementById("hc").innerHTML = "Cost: " + hg_cost + "H";
+    document.getElementById("sppp").innerHTML = save_pop_up;
 },update_rate)
 function starts(){
 s = setInterval(()=> {
@@ -470,6 +472,7 @@ function save(){
         ts: ts,
         ttp: ttp,
         update_rate: update_rate,
+        save_pop_up: save_pop_up,
         seconds_generator: seconds_generator,
         minutes_generator: minutes_generator,
         hours_generator: hours_generator,
@@ -503,6 +506,7 @@ function load(){
     ts = loadedGame.ts;
     ttp = loadedGame.ttp;
     update_rate = loadedGame.update_rate;
+    save_pop_up = loadedGame.save_pop_up;
     seconds_generator = loadedGame.seconds_generator;
     minutes_generator = loadedGame.minutes_generator;
     hours_generator = loadedGame.hours_generator;
@@ -570,8 +574,18 @@ function deletesave(){
         location.reload();
     }
 }
+function savepp(){
+    if(save_pop_up){
+        save_pop_up = false;
+    }
+    else{
+        save_pop_up = true;
+    }
+}
 setInterval(() => {
-    document.getElementById("saveanim").style.display = "block";
+    if(save_pop_up){
+        document.getElementById("saveanim").style.display = "block";
+    }
     save();
 },30000)
 setInterval(() => {
