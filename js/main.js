@@ -5,6 +5,7 @@ var hours = 0;
 var days = 0;
 var tp = 0;
 var ts = 100;
+var ttp = 0;
 //ustawienia
 var update_rate = 50;
 var autobuy_rate = 50;
@@ -38,10 +39,14 @@ var ihc = 1;
 var is = 1000;
 var im = 1000;
 var ih = 1000;
+//Date
+var starttime = new Date();
 starts();
 startm();
 starth();
+document.getElementById("egs").style.display = "none";
 document.getElementById("bdd").style.display = "none";
+document.getElementById("ttpc").style.display = "none";
 document.getElementById("selectgene").style.display = "none";
 document.getElementById("selectqol").style.display = "none";
 document.getElementById("selectsettings").style.display = "none";
@@ -58,6 +63,8 @@ document.getElementById("hg").innerHTML = "Hour meters: " + hours_generator;
 document.getElementById("sc").innerHTML = "Cost: " + sg_cost;
 document.getElementById("mc").innerHTML = "Cost: " + mg_cost;
 document.getElementById("hc").innerHTML = "Cost: " + hg_cost;
+document.getElementById("saveanim").style.display = "none";
+checkprogress();
 setInterval(() =>{
     seconds += seconds_generator * 0.5;
     minutes += minutes_generator * 0.5;
@@ -72,7 +79,10 @@ setInterval(() =>{
     document.getElementById("isc").innerHTML = "Cost: " + isc + " TP";
     document.getElementById("imc").innerHTML = "Cost: " + imc + " TP";
     document.getElementById("ihc").innerHTML = "Cost: " + ihc + " TP";
-    if(seconds >= 1000000 && minutes >= 100000 && hours >= 100000){
+    if(seconds >= 100000){
+        seconds = 100000;
+        document.getElementById("endbruh").style.display = "none";
+        document.getElementById("endcollect").innerHTML = "⬆️"
         document.getElementById("finb").style.display = "block";
     }
     if(ts <= 0){
@@ -80,12 +90,14 @@ setInterval(() =>{
         document.getElementById("bd").style.display = "none";
         document.getElementById("bdd").style.display = "none";
         document.getElementById("klep").style.display = "block";
+        minutes = 10;
+        hours = 10;
     }
     else{
         document.getElementById("finb").style.display = "none";
         document.getElementById("klep").style.display = "none";
         document.getElementById("ts").innerHTML = "Time Stability: " + ts +"%";
-        if(tp == 1 && !prestige){
+        if(tp >= 1 && !prestige){
             document.getElementById("bdd").style.display = "block";
             prestige = true;
         }
@@ -107,6 +119,7 @@ setInterval(() =>{
         }
     }
     document.getElementById("tp").innerHTML = "Time Points: " + tp;
+    document.getElementById("ttp").innerHTML = "Tickle Tickle Points: " + ttp;
     document.getElementById("seconds").innerHTML = seconds;
     document.getElementById("minutes").innerHTML = minutes;
     document.getElementById("hours").innerHTML = hours;
@@ -247,24 +260,22 @@ function damaget(){
  hours_generator = 0;
 //koszty
  sg_cost = 0;
- mg_cost = 10;
- hg_cost = 10;
+ mg_cost = 0;
+ hg_cost = 0;
 //koszty ale do pokazania
  sgs_cost;
  mgs_cost;
  hgh_cost;
- //Interval cost
-isc = 1;
-imc = 1;
-ihc = 1;
-//Interval
-is = 1000;
-im = 1000;
-ih = 1000;
+    }
+    else{
+        alert("You don't have any Time Points!")
     }
 }
 function sike(){
-    location.reload();
+    ttp += 1;
+    if(ttp >= 1){
+        document.getElementById("ttpc").style.display = "block";
+    }
 }
 function updaterate(){
     if(update_rate == 50){
@@ -434,100 +445,135 @@ function upgradeih(){
         starth(h);
     }
 }
+function wisdamage(){
+    alert("Damaging time will affect Time Stability and raise your production.\n All your Time Points will be consumed.\n All Days, Hours, Minutes, Seconds and generators will be reseted.")
+}
+function endgame(){
+    if(ttp >= 100){
+        document.getElementById("everything").style.display = "none";
+        document.body.style.backgroundColor = "#111111";
+        document.getElementById("egs").style.display = "block";
+        var finaltime = new Date();
+        document.getElementById("playtime").innerHTML = "🅨🅞🅤 🅟🅛🅐🅨🅔🅓 🅕🅡🅞🅜 " + starttime + "\n 🅣🅞 " + finaltime;
+    }
+    else{
+        alert("You don't have enough Tickle Tickle Points!")
+    }
+}
 function save(){
-    //ilości
-    setCookie("seconds", seconds, 365);
-    setCookie("minutes", minutes, 365);
-    setCookie("hours", hours, 365);
-    setCookie("days", days, 365);
-    setCookie("tp", tp, 365);
-    setCookie("ts", ts, 365);
-    //ustawienia
-    setCookie("update_rate", update_rate, 365);
-    setCookie("autobuy_rate", autobuy_rate, 365);
-    //generatory
-    setCookie("seconds_generator", seconds_generator, 365);
-    setCookie("minutes_generator", minutes_generator, 365);
-    setCookie("hours_generator", hours_generator, 365);
-    //koszty
-    setCookie("sg_cost", sg_cost, 365);
-    setCookie("mg_cost", mg_cost, 365);
-    setCookie("hg_cost", hg_cost, 365);
-    //Autobuy
-    setCookie("seconds_autobyers", seconds_autobyers, 365);
-    setCookie("minutes_autobyers", minutes_autobyers, 365);
-    setCookie("hours_autobyers", hours_autobyers, 365);
-    //save autobuy
-    setCookie("sa_on", sa_on, 365);
-    setCookie("ma_on", ma_on, 365);
-    setCookie("ha_on", ha_on, 365);
-    //checkers
-    setCookie("prestige", prestige, 365);
-    //Interval cost
-    setCookie("isc", isc, 365);
-    setCookie("imc", imc, 365);
-    setCookie("ihc", ihc, 365);
-    //Interval
-    setCookie("is", is, 365);
-    setCookie("im", im, 365);
-    setCookie("ih", ih, 365);
+    var save = {
+        seconds: seconds,
+        minutes: minutes,
+        hours: hours,
+        days: days,
+        tp: tp,
+        ts: ts,
+        ttp: ttp,
+        update_rate: update_rate,
+        seconds_generator: seconds_generator,
+        minutes_generator: minutes_generator,
+        hours_generator: hours_generator,
+        sg_cost: sg_cost,
+        mg_cost: mg_cost,
+        hg_cost: hg_cost,
+        seconds_autobyers: seconds_autobyers,
+        minutes_autobyers: minutes_autobyers,
+        hours_autobyers: hours_autobyers,
+        sa_on: sa_on,
+        ma_on: ma_on,
+        ha_on: ha_on,
+        prestige: prestige,
+        isc: isc,
+        imc: imc,
+        ihc: ihc,
+        is: is,
+        im: im,
+        ih: ih,
+        starttime: starttime
+    }
+    localStorage.setItem("save",JSON.stringify(save));
 }
 function load(){
-//ilości
-seconds = getCookie("seconds");
-minutes = getCookie("minutes");
-hours = getCookie("hours");
-days = getCookie("days");
-tp = getCookie("tp");
-ts = getCookie("ts");
-//ustawienia
-update_rate = getCookie("update_rate");
-autobuy_rate = getCookie("autobuy_rate");
-//generatory
-seconds_generator = getCookie("seconds_generator");
-minutes_generator = getCookie("minutes_generator");
-hours_generator = getCookie("hours_generator");
-//koszty
-sg_cost = getCookie("sg_cost");
-mg_cost = getCookie("mg_cost");
-hg_cost = getCookie("hg_cost");
-//Autobuy
-seconds_autobyers = getCookie("seconds_autobyers");
-minutes_autobyers = getCookie("minutes_autobyers");
-hours_autobyers = getCookie("hours_autobyers");
-//save autobuy
-sa_on = getCookie("sa_on");
-ma_on = getCookie("ma_on");
-ha_on = getCookie("ha_on");
-//checkers
-prestige = getCookie("prestige");
-//Interval cost
-isc = getCookie("isc");
-imc = getCookie("imc");
-ihc = getCookie("ihc");
-//Interval
-is = getCookie("is");
-im = getCookie("im");
-ih = getCookie("ih");
-}
-function setCookie(cname,cvalue,exdays) {
-    var d = new Date();
-    d.setTime(d.getTime() + (exdays*24*60*60*1000));
-    var expires = "expires=" + d.toGMTString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-  }
-  function getCookie(cname) {
-    var name = cname + "=";
-    var decodedCookie = decodeURIComponent(document.cookie);
-    var ca = decodedCookie.split(';');
-    for(var i = 0; i < ca.length; i++) {
-      var c = ca[i];
-      while (c.charAt(0) == ' ') {
-        c = c.substring(1);
-      }
-      if (c.indexOf(name) == 0) {
-        return c.substring(name.length, c.length);
-      }
+    var loadedGame = JSON.parse(localStorage.getItem("save"));
+    seconds = loadedGame.seconds;
+    minutes = loadedGame.minutes;
+    hours = loadedGame.hours;
+    days = loadedGame.days;
+    tp = loadedGame.tp;
+    ts = loadedGame.ts;
+    ttp = loadedGame.ttp;
+    update_rate = loadedGame.update_rate;
+    seconds_generator = loadedGame.seconds_generator;
+    minutes_generator = loadedGame.minutes_generator;
+    hours_generator = loadedGame.hours_generator;
+    sg_cost = loadedGame.sg_cost;
+    mg_cost = loadedGame.mg_cost;
+    hg_cost = loadedGame.hg_cost;
+    seconds_autobyers = loadedGame.seconds_autobyers;
+    minutes_autobyers = loadedGame.minutes_autobyers;
+    hours_autobyers = loadedGame.hours_autobyers;
+    sa_on = loadedGame.sa_on;
+    ma_on = loadedGame.ma_on;
+    ha_on = loadedGame.ha_on;
+    prestige = loadedGame.prestige;
+    isc = loadedGame.isc;
+    imc = loadedGame.imc;
+    ihc = loadedGame.ihc;
+    is = loadedGame.is;
+    im = loadedGame.im;
+    ih = loadedGame.ih;
+    starttime = loadedGame.starttime;
+    if(seconds_autobyers){
+        document.getElementById("sa").innerHTML = "Already Purchased!"
+        if(sa_on){
+            document.getElementById("as").innerHTML = "On"
+        }
+        else{
+            document.getElementById("as").innerHTML = "Off"
+        }
     }
-    return "";
-  }
+    if(minutes_autobyers){
+        document.getElementById("ma").innerHTML = "Already Purchased!"
+        if(ma_on){
+            document.getElementById("am").innerHTML = "On"
+        }
+        else{
+            document.getElementById("am").innerHTML = "Off"
+        }
+    }
+    if(hours_autobyers){
+        document.getElementById("ha").innerHTML = "Already Purchased!"
+        if(ha_on){
+            document.getElementById("ah").innerHTML = "On"
+        }
+        else{
+            document.getElementById("ah").innerHTML = "Off"
+        }
+    }
+    if(prestige){
+        document.getElementById("bdd").style.display = "block";
+    }
+    if(ttp >= 1){
+        document.getElementById("ttpc").style.display = "block";
+    }
+}
+function checkprogress(){
+    var loadedGame = JSON.parse(localStorage.getItem("save"));
+    if(loadedGame != null){
+        load();
+    }
+}
+function deletesave(){
+    var r = confirm("Do you want to delete save?")
+    if(r){
+        localStorage.removeItem("save");
+        location.reload();
+    }
+}
+setInterval(() => {
+    document.getElementById("saveanim").style.display = "block";
+    save();
+},30000)
+setInterval(() => {
+    document.getElementById("saveanim").style.display = "none";
+},32000)

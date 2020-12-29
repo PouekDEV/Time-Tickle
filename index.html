@@ -24,8 +24,8 @@
           display: inline-block;
           font-size: 15px;
           margin: 4px 2px;
-          border: 10px solid #ffffff;
-          border-radius: 10px;
+          border: 10px solid #111111;
+          border-radius:  40px
         }
         .choose {
           position: relative;
@@ -39,8 +39,8 @@
           display: inline-block;
           font-size: 15px;
           margin: 4px 2px;
-          border: 10px solid #ffffff;
-          border-radius: 10px;
+          border: 10px solid #111111;
+          border-radius:  40px
         }
         .buttons {
           border: none;
@@ -53,7 +53,7 @@
           margin: 4px 2px;
           border: 10px solid #93A3B1;
           cursor: pointer;
-          border-radius: 10px;
+          border-radius:  40px;
         }
         .buttonss {
           border: none;
@@ -65,7 +65,7 @@
           font-size: 15px;
           margin: 4px 2px;
           border: 10px solid #93A3B1;
-          border-radius: 10px;
+          border-radius:  40px;
         }
         .damage {
           border: none;
@@ -78,7 +78,20 @@
           margin: 4px 2px;
           border: 10px solid #ff000000;
           cursor: pointer;
-          border-radius: 10px;
+          border-radius:  40px;
+        }
+        .questionm {
+          border: none;
+          color: white;
+          padding: 15px 45px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 15px;
+          margin: 4px 2px;
+          border: 10px solid #0000005b;
+          cursor: pointer;
+          border-radius:  40px;
         }
         .items {
           border: none;
@@ -90,7 +103,7 @@
           font-size: 15px;
           margin: 4px 2px;
           border: 10px solid #322214;
-          border-radius: 10px;
+          border-radius:  40px;
         }
         .times {
           border: none;
@@ -102,7 +115,7 @@
           font-size: 15px;
           margin: 4px 2px;
           border: 10px solid #4C443C;
-          border-radius: 10px;
+          border-radius:  40px;
         }
         .kle {
           border: none;
@@ -114,7 +127,7 @@
           font-size: 15px;
           margin: 4px 2px;
           border: 10px solid #636564;
-          border-radius: 10px;
+          border-radius:  40px;
         }
         .QoL {
           border: none;
@@ -126,7 +139,18 @@
           font-size: 15px;
           margin: 4px 2px;
           border: 10px solid #4C443C;
-          border-radius: 10px;
+          border-radius:  40px;
+        }
+        @keyframes save{
+          from {width: 1px;}
+          to {width: 100px;}
+        }
+        .saveanim{
+          width: 100px;
+          height: 20px;
+          background-color: #000000;
+          animation-name: save;
+          animation-duration: 2s;
         }
         .button1:hover {
   background-color: #696969;
@@ -138,6 +162,7 @@
 }
 .button1 {background-color: #000000;} /* Black */
 .button2 {background-color: #857070;} /* ? */
+.button3 {background-color: #85707000;} /* ??? */
     </style>
 <head>
     <meta charset="UTF-8">
@@ -146,7 +171,21 @@
     <link rel="icon" href="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/271/hourglass-done_231b.png">
 </head>
 <body style="background-color:rgb(53, 53, 53);" text="#ffffff">
-  <p style="text-align:left;"><input type="image" src="images/discord.png" onclick="window.location.href='https://discord.gg/PzWkdG9SFA'"></p>
+  <p style="text-align:left;"><input type="image" src="images/discord.png" onclick="window.location.href='https://discord.gg/2KZTf5mWJU'"></p>
+  <div class="saveanim generator" id="saveanim">
+    Game Saved
+  </div>
+  <div class="engamestuff" id="egs">
+    <p style="text-align:center;" style="text-shadow:0 0 5px #eeeeee"><big><big><big><big><big><big><big><big>The End</big></big></big></big></big></big></big></big></p>
+    <p style="text-align:center;" id="playtime"></p>
+    <p style="text-align:center;"><img src="images/hourglass.gif"></p>
+    <div class="container">
+      <p style="text-align:center;"><big><big><big><big>Delete Save</big></big></big></big></p>
+      <p style="text-align:center;"><big><big><big><big>Will ask for confirmation </big></big></big></big></p>
+      <button class="damage button1" onclick="deletesave()"><big>Delete</big></button>
+    </div>
+  </div>
+  <div class="everything" id="everything">
   <div class="container justidy">
     <div class="buttonsss generator">
     <p style="text-align:center;"><button class="buttons button2" onclick="selectqol()"><big>AutoBuyers</big></button></p>
@@ -160,8 +199,11 @@
   </div>
   <div class="rest container">
     <div class="klepsydra container kle" id="klep">
-      This is end<p style="text-align:center;"><img src="images/hourglass.png"></p>Not really 
-      <p style="text-align:center;">Collect 100000H 100000Min 1000000s</p>
+      <div class="endbruh" id="endbruh">
+      This is end<p style="text-align:center;"></p>Not really 
+    </div>
+    <input type="image" src="images/hourglass.png" onclick="endgame()">
+      <p style="text-align:center;" id="endcollect">Collect 1000000s</p>
       <p style="text-align:center;" id="finb"><button class="buttons button1" onclick="sike()"><big>Tickle ¯\_(ツ)_/¯ Tickle</big></button></p>
   </div>
   <div class="container generator">
@@ -170,9 +212,15 @@
   <div class="container times">
       <p style="text-align:center;" id="ts"><big><big><big><big><big><big><big><big>Time stability</big></big></big></big></big></big></big></big></p>
   </div>
+  <div class="ttp" id="ttpc">
+  <div class="container generator">
+    <p style="text-align:center;" id="ttp"><big><big><big><big>Tickle Tickle Points: 0</big></big></big></big></p>
+</div>
+</div>
 </div>
   <div class="damageing container buttonss" id="bdd">
       <button class="damage button1" id="bd" onclick="damaget()"><big>Damage</big></button>
+      <button class="questionm button3" id="bd" onclick="wisdamage()"><p class="text-shadow:0 0 5px #eeeeee">?</p></button>
   </div>
     <div class="generatory container">
       <div class="justidy">
@@ -235,22 +283,29 @@
           <p style="text-align:center;"><big><big><big><big><big><big>Settings</big></big></big></big></big></big></p>
         </div>
         <div class="settings times">
-          <p style="text-align:center;"><big><big><big><big>Change Update Rate</big></big></big></big></p>
-          <button class="buttons button1" onclick="updaterate()"><big><p id="ms">Cost: 1000</p></big></button>
-        </div>
-        <!--
-        <div class="settings times">
           <p style="text-align:center;"><big><big><big><big>Save</big></big></big></big></p>
+          <p style="text-align:center;"><big><big><big><big>Note: Game automatically saves every 30 seconds</big></big></big></big></p>
           <button class="buttons button1" onclick="save()"><big><p>Save</p></big></button>
         </div>
         <div class="settings times">
           <p style="text-align:center;"><big><big><big><big>Load</big></big></big></big></p>
+          <p style="text-align:center;"><big><big><big><big>Note: Game automatically loads save if it exist</big></big></big></big></p>
           <button class="buttons button1" onclick="load()"><big><p>Load</p></big></button>
         </div>
-      -->
+        <div class="settings times">
+          <p style="text-align:center;"><big><big><big><big>Delete Save</big></big></big></big></p>
+          <p style="text-align:center;"><big><big><big><big>Will ask for confirmation </big></big></big></big></p>
+          <button class="buttons button1" onclick="deletesave()"><big>Delete</big></button>
+        </div>
+        <br>
+        <div class="settings times">
+          <p style="text-align:center;"><big><big><big><big>Change Update Rate</big></big></big></big></p>
+          <button class="buttons button1" onclick="updaterate()"><big><p id="ms">Cost: 1000</p></big></button>
+        </div>
       </div>
     </div>
   </div>
+</div>
 </body>
 <!--Import-->
 <script src="js/main.js"></script>
